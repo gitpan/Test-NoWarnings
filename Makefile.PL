@@ -21,6 +21,7 @@ WriteMakefile(
 	VERSION_FROM => $pm_file,
 	INSTALLDIRS => 'perl',
 	PREREQ_PM => {
+		'Test::Tester' => 0.06
 	},
 	dist => {
 		PREOP=> "rm -f README; pod2text -80 < $doc_file > README; cp -f README $dir-\$(VERSION); "
