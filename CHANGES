@@ -1,3 +1,8 @@
+0.03
+
+require Test::NoWarnings will not turn on the automatic test at the end.
+This is to stop tests running when MakeMaker is checking the version.
+
 0.02
 
 Arghhhh! Dependencies! Fixed now

@@ -16,7 +16,7 @@ use vars qw(
 	$VERSION @EXPORT_OK @ISA $do_end_test
 );
 
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 require Exporter;
 @ISA = qw( Exporter );
@@ -29,13 +29,20 @@ my @warnings;
 
 $SIG{__WARN__} = make_catcher(\@warnings);
 
-$do_end_test = 1;
+$do_end_test = 0;
+
+sub import
+{
+	$do_end_test = 1;
+
+	goto &Exporter::import;
+}
 
 # the END block must be after the "use Test::Builder" to make sure it runs
 # before Test::Builder's end block
-
+# only run the test if there have been other tests
 END {
-	had_no_warnings() if $do_end_test and $$ == $PID;
+	had_no_warnings() if $do_end_test;
 }
 
 sub make_warning
@@ -76,10 +83,10 @@ sub make_catcher
 	};
 }
 
-
-
 sub had_no_warnings
 {
+	return 0 if $$ != $PID;
+
 	local $SIG{__WARN__};
 	my $name = shift || "no warnings";
 
@@ -180,6 +187,15 @@ The warnings your test has generated so far are stored in an array. You can
 look inside and clear this whenever you want with C<warnings()> and
 C<clear_warnings()>, however, if you are doing this sort of thing then you
 probably want to use L<Test::Warn> in combination with L<Test::NoWarnings>.
+
+=head1 USE vs REQUIRE
+
+You will almost always want to do
+
+  use Test::NoWarnings
+
+If you do a C<require> rather than a C<use>, then there will be no automatic
+test at the end of your script.
 
 =head1 OUTPUT
 

@@ -7,4 +7,5 @@ lib/Test/NoWarnings/Warning.pm
 t/end.t
 t/fork.t
 t/no_end.t
+t/no_tests.t
 t/none.t

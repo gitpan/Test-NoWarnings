@@ -48,6 +48,14 @@ USAGE
     "clear_warnings()", however, if you are doing this sort of thing then you
     probably want to use Test::Warn in combination with Test::NoWarnings.
 
+USE vs REQUIRE
+    You will almost always want to do
+
+      use Test::NoWarnings
+
+    If you do a "require" rather than a "use", then there will be no automatic
+    test at the end of your script.
+
 OUTPUT
     If warning is captured during your test then the details will output as part
     of the diagnostics. You will get:
