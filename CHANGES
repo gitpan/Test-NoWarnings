@@ -1,3 +1,11 @@
+0.07
+
+Carp.pm changed slightly in perl5.8.5. It used to behave like warn in that
+it didn't put "at line blah" at the end of a message that had a \n, even
+when it was supposed to be doing a full stack trace. Now it does (which is
+probably a good since the stack trace was missing the first frame). The
+tests now check Carp's version number.
+
 0.06
 
 Forget to include the LGPL

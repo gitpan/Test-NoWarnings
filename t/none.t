@@ -46,10 +46,13 @@ sub b
 
 	my ($warn) = warnings();
 
+	# 5.8.5 changed Carp's behaviour when the string ends in a \n
+	my $base = $Carp::VERSION >= 1.03; 
+
 	my @carp = split("\n", $warn->getCarp);
 
-	like($carp[1], '/main::b/', "carp level b");
-	like($carp[2], '/main::a/', "carp level a");
+	like($carp[$base+1], '/main::b/', "carp level b");
+	like($carp[$base+2], '/main::a/', "carp level a");
 
 	SKIP: {
 		my $has_st = eval "require Devel::StackTrace" || 0;
