@@ -1,3 +1,8 @@
+0.04
+
+Carp on 5.6.1 doesn't export longmess, so we have to use a fully qualified
+call to Carp::longmess()
+
 0.03
 
 require Test::NoWarnings will not turn on the automatic test at the end.

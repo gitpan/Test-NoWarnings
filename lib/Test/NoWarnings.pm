@@ -10,13 +10,13 @@ use Test::NoWarnings::Warning;
 my $Test = Test::Builder->new;
 my $PID = $$;
 
-use Carp qw(longmess);
+use Carp;
 
 use vars qw(
 	$VERSION @EXPORT_OK @ISA $do_end_test
 );
 
-$VERSION = '0.03';
+$VERSION = '0.04';
 
 require Exporter;
 @ISA = qw( Exporter );

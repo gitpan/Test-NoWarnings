@@ -2,7 +2,7 @@ use strict;
 
 package Test::NoWarnings::Warning;
 
-use Carp qw(longmess);
+use Carp;
 
 my $has_st = eval "require Devel::StackTrace" || 0;
 
@@ -46,7 +46,7 @@ sub fillCarp
 	my $msg = shift;
 
 	$Carp::Internal{__PACKAGE__.""}++;
-	$self->{Carp} = longmess($msg);
+	$self->{Carp} = Carp::longmess($msg);
 	$Carp::Internal{__PACKAGE__.""}--;
 }
 
