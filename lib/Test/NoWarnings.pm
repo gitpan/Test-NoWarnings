@@ -16,7 +16,7 @@ use vars qw(
 	$VERSION @EXPORT_OK @ISA $do_end_test
 );
 
-$VERSION = '0.05';
+$VERSION = '0.06';
 
 require Exporter;
 @ISA = qw( Exporter );

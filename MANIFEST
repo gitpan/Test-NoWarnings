@@ -1,3 +1,4 @@
+LGPL
 README
 CHANGES
 MANIFEST			This list of files
@@ -9,3 +10,4 @@ t/fork.t
 t/no_end.t
 t/no_tests.t
 t/none.t
+META.yml                                 Module meta-data (added by MakeMaker)
