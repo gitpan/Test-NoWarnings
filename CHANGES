@@ -1,0 +1,16 @@
+0.01
+
+Renamed from Test::Warn::None
+
+Now it copes with forks
+
+----
+Test::Warn::None changelog
+
+0.02
+
+updated Test::Tester dependency
+
+0.01
+
+initial release
