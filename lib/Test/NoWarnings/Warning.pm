@@ -46,6 +46,7 @@ sub fillCarp
 	my $msg = shift;
 
 	$Carp::Internal{__PACKAGE__.""}++;
+	local $Carp::CarpLevel = $Carp::CarpLevel + 1;
 	$self->{Carp} = Carp::longmess($msg);
 	$Carp::Internal{__PACKAGE__.""}--;
 }

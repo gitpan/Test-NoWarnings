@@ -16,7 +16,7 @@ use vars qw(
 	$VERSION @EXPORT_OK @ISA $do_end_test
 );
 
-$VERSION = '0.04';
+$VERSION = '0.05';
 
 require Exporter;
 @ISA = qw( Exporter );
@@ -58,6 +58,7 @@ sub make_warning
 	$warning->fillTrace(__PACKAGE__);
 
 	$Carp::Internal{__PACKAGE__.""}++;
+	local $Carp::CarpLevel = $Carp::CarpLevel + 1;
 	$warning->fillCarp($msg);
 	$Carp::Internal{__PACKAGE__.""}--;
 

@@ -47,6 +47,7 @@ sub b
 	my ($warn) = warnings();
 
 	my @carp = split("\n", $warn->getCarp);
+
 	like($carp[1], '/main::b/', "carp level b");
 	like($carp[2], '/main::a/', "carp level a");
 
