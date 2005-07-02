@@ -8,7 +8,9 @@ my $cap = Test::Tester::capture();
 Test::NoWarnings::builder($cap);
 
 END {
+print "helo\n";
 	my @tests = $cap->details;
+print "helo\n";
 	cmp_results(
 		\@tests,
 		[
@@ -29,6 +31,10 @@ END {
 
 use Test::NoWarnings;
 
-$cap->ok(1, "fake test");
-warn "my special warning";
+{
+	# TB things never expect to be called directly by the test script
+	local($Test::Builder::Level) = $Test::Builder::Level - 1;
 
+	$cap->ok(1, "fake test");
+	warn "my special warning";
+}
