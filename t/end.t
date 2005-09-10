@@ -1,8 +1,8 @@
 use strict;
 
-use Test::More tests => 6;
-
 use Test::Tester;
+
+use Test::More tests => 6;
 
 my $cap = Test::Tester::capture();
 Test::NoWarnings::builder($cap);
