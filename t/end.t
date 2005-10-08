@@ -8,17 +8,17 @@ my $cap = Test::Tester::capture();
 Test::NoWarnings::builder($cap);
 
 END {
-print "helo\n";
 	my @tests = $cap->details;
-print "helo\n";
 	cmp_results(
 		\@tests,
 		[
 			{
-				actual_ok => 1
+				actual_ok => 1,
+				depth => undef,
 			},
 			{
-				actual_ok => 0
+				actual_ok => 0,
+				depth => undef,
 			}
 		]
 	);
