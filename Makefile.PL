@@ -19,7 +19,6 @@ WriteMakefile(
 	AUTHOR => 'Fergal Daly <fergal@esatclear.ie>',
 	NAME => $module,
 	VERSION_FROM => $pm_file,
-	INSTALLDIRS => 'perl',
 	PREREQ_PM => {
 		'Test::Tester' => 0.103
 	},
