@@ -47,7 +47,11 @@ sub b
 	my ($warn) = warnings();
 
 	# 5.8.5 changed Carp's behaviour when the string ends in a \n
-	my $base = $Carp::VERSION >= 1.03; 
+  # the monkey business is because 5.005 throws a "used only
+  # once" warning for $Carp::VERSION
+  my $cv = do { no warnings; $Carp::VERSION };
+
+	my $base = $cv >= 1.03; 
 
 	my @carp = split("\n", $warn->getCarp);
 
