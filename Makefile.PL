@@ -1,6 +1,6 @@
 use strict;
 BEGIN {
-	require 5.004;
+	require 5.006;
 }
 use ExtUtils::MakeMaker;
 
@@ -9,7 +9,7 @@ WriteMakefile1(
 	ABSTRACT         => "Make sure you didn't emit any warnings while testing",
 	VERSION_FROM     => 'lib/Test/NoWarnings.pm',
 	AUTHOR           => 'Fergal Daly <fergal@esatclear.ie>',
-	LICENSE          => 'perl',
+        LICENSE          => 'lgpl',
 	MIN_PERL_VERSION => '5.006',
 	BUILD_REQUIRES   => {
 		'Test::More'    => '0.47',
@@ -31,9 +31,7 @@ sub WriteMakefile1 {
 	my $eumm_version = $ExtUtils::MakeMaker::VERSION;
 	$eumm_version = eval $eumm_version;
 	die "License not specified" if not exists $params{LICENSE};
-	if ($params{BUILD_REQUIRES}) { #and $eumm_version < 6.5503
-		#Should be modified in future when EUMM will
-		#correctly support BUILD_REQUIRES.
+	if ($params{BUILD_REQUIRES} and $eumm_version < 6.5503) {
 		#EUMM 6.5502 has problems with BUILD_REQUIRES
 		$params{PREREQ_PM}={ %{$params{PREREQ_PM} || {}} , %{$params{BUILD_REQUIRES}} };
 		delete $params{BUILD_REQUIRES};

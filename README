@@ -116,14 +116,23 @@ PITFALLS
 BUGS
     None that I know of.
 
+SUPPORT
+    Bugs should be reported via the CPAN bug tracker at
+
+    <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Test-NoWarnings>
+
+    For other issues, contact the author.
+
 HISTORY
     This was previously known as Test::Warn::None
 
 SEE ALSO
     Test::Builder, Test::Warn
 
-AUTHOR
+AUTHORS
     Fergal Daly <fergal@esatclear.ie>
+
+    Adam Kennedy <adamk@cpan.org>
 
 COPYRIGHT
     Copyright 2003 - 2007 Fergal Daly.
