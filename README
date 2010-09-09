@@ -71,17 +71,17 @@ OUTPUT
       module
 
 EXPORTABLE FUNCTIONS
-  had_no_warnings()
+  had_no_warnings
     This checks that there have been warnings emitted by your test scripts.
     Usually you will not call this explicitly as it is called automatically
     when your script finishes.
 
-  clear_warnings()
+  clear_warnings
     This will clear the array of warnings that have been captured. If the
     array is empty then a call to "had_no_warnings()" will produce a pass
     result.
 
-  warnings()
+  warnings
     This will return the array of warnings captured so far. Each element of
     this array is an object containing information about the warning. The
     following methods are available on these object.
@@ -112,9 +112,6 @@ EXPORTABLE FUNCTIONS
 PITFALLS
     When counting your tests for the plan, don't forget to include the test
     that runs automatically when your script ends.
-
-BUGS
-    None that I know of.
 
 SUPPORT
     Bugs should be reported via the CPAN bug tracker at
