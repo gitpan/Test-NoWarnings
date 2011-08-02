@@ -11,4 +11,7 @@ t/03_end.t
 t/04_no_tests.t
 t/05_no_end.t
 t/06_fork.t
+xt/meta.t
+xt/pmv.t
+xt/pod.t
 META.yml                                 Module meta-data (added by MakeMaker)
