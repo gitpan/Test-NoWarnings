@@ -29,28 +29,27 @@ DESCRIPTION
     be capturing and checking them with Test::Warn, that way
     Test::NoWarnings will not see them and so not complain.
 
-    The test is run by an END block in Test::NoWarnings. It will not be run
-    when any forked children exit.
+    The test is run by an "END" block in Test::NoWarnings. It will not be
+    run when any forked children exit.
 
 USAGE
     Simply by using the module, you automatically get an extra test at the
     end of your script that checks that no warnings were emitted. So just
     stick
 
-      use Test::NoWarnings
+      use Test::NoWarnings;
 
     at the top of your script and continue as normal.
 
     If you want more control you can invoke the test manually at any time
-    with "had_no_warnings()".
+    with "had_no_warnings".
 
     The warnings your test has generated so far are stored in an array. You
     can look inside and clear this whenever you want with "warnings()" and
-    "clear_warnings()", however, if you are doing this sort of thing then
-    you probably want to use Test::Warn in combination with
-    Test::NoWarnings.
+    "clear_warnings", however, if you are doing this sort of thing then you
+    probably want to use Test::Warn in combination with Test::NoWarnings.
 
-USE vs REQUIRE
+  use vs require
     You will almost always want to do
 
       use Test::NoWarnings
@@ -58,7 +57,7 @@ USE vs REQUIRE
     If you do a "require" rather than a "use", then there will be no
     automatic test at the end of your script.
 
-OUTPUT
+  Output
     If warning is captured during your test then the details will output as
     part of the diagnostics. You will get:
 
@@ -70,7 +69,27 @@ OUTPUT
     o a full dump of the stack when warn was called, courtesy of the "Carp"
       module
 
-EXPORTABLE FUNCTIONS
+    By default, all warning messages will be emitted in one block at the end
+    of your test script.
+
+  The :early pragma
+    One common complaint from people using Test::NoWarnings is that all of
+    the warnings are emitted in one go at the end. While this is the safest
+    and most correct time to emit these diagnostics, it can make debugging
+    these warnings difficult.
+
+    As of Test::NoWarnings 1.04 you can provide an experimental ":early"
+    pragma when loading the module to force warnings to be thrown via diag
+    at the time that they actually occur.
+
+      use Test::NoWarnings ':early';
+
+    As this will cause the diag to be emitted against the previous test and
+    not the one in which the warning actually occurred it is recommended
+    that the pragma be turned on only for debugging and left off when not
+    needed.
+
+FUNCTIONS
   had_no_warnings
     This checks that there have been warnings emitted by your test scripts.
     Usually you will not call this explicitly as it is called automatically

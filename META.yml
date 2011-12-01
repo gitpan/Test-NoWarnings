@@ -1,26 +1,26 @@
---- #YAML:1.0
-name:               Test-NoWarnings
-version:            1.03
-abstract:           Make sure you didn't emit any warnings while testing
+---
+abstract: "Make sure you didn't emit any warnings while testing"
 author:
-    - Fergal Daly <fergal@esatclear.ie>
-license:            lgpl
-distribution_type:  module
-configure_requires:
-    ExtUtils::MakeMaker:  0
+  - 'Fergal Daly <fergal@esatclear.ie>'
 build_requires:
-    Test::More:    0.47
-    Test::Tester:  0.107
-requires:
-    perl:           5.006
-    Test::Builder:  0.86
-resources:
-    repository:  http://svn.ali.as/cpan/trunk/Test-NoWarnings
-no_index:
-    directory:
-        - t
-        - inc
-generated_by:       ExtUtils::MakeMaker version 6.56
+  Test::More: 0.47
+  Test::Tester: 0.107
+configure_requires:
+  ExtUtils::MakeMaker: 0
+dynamic_config: 1
+generated_by: 'ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.112621'
+license: open_source
 meta-spec:
-    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
-    version:  1.4
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Test-NoWarnings
+no_index:
+  directory:
+    - t
+    - inc
+requires:
+  Test::Builder: 0.86
+  perl: 5.006
+resources:
+  repository: http://svn.ali.as/cpan/trunk/Test-NoWarnings
+version: 1.04
